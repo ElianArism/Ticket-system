@@ -15,13 +15,16 @@ let lblEsc = [
 ]; 
 
 socket.on('estadoActual', function (res) {
-    let audio = new Audio('audio/new-ticket.mp3');
-    audio.addEventListener("canplaythrough", event => {
-       audio.play();
-      });
     actualizarHTML(res.ultimos4Tickets); 
 }); 
 
+socket.on('ultimos4Tickets', function(res) {
+    let audio = new Audio('audio/new-ticket.mp3');
+    audio.addEventListener("canplaythrough", event => {
+       audio.play();
+    });
+    actualizarHTML(res.ultimos4Tickets);  
+});
 
 
 function actualizarHTML(tickets) {

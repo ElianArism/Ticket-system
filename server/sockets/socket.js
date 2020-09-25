@@ -19,6 +19,7 @@ io.on('connection', (client) => {
         let atenderTicket = tk.atenderTicket( data.escritorio );
         callback(atenderTicket); 
         
+        client.broadcast.emit('ultimos4Tickets', {ultimos4Tickets: tk.ultimos4Tickets});
     });
    
     
